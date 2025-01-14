@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "nbdev-cards"
+  site-url: "https://pressi-g.github.io/nbdev-cards"
+  description: "A sample of how to create a deck of cards lib using nbdev"
+  repo-branch: main
+  repo-url: "https://github.com/pressi-g/nbdev-cards"
