@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdev-cards",
+    "section": "",
+    "text": "A deck of cards demo of nbdev based on the ideas from Think Python 2nd Edition by Allen Downey.\nThis file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "nbdev-cards",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall nbdev_cards in Development mode\n# make sure nbdev_cards package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to nbdev_cards\n$ nbdev_prepare",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "nbdev-cards",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/pressi-g/nbdev-cards.git\nor from conda\n$ conda install -c pressi-g nbdev_cards\nor from pypi\n$ pip install nbdev_cards\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "nbdev-cards",
+    "section": "How to use",
+    "text": "How to use\nThis lib provides a Card that you can use to create, display and compare cards.\n\nCard(1,3)\n\n3♦️\n\n\nSuits are numbered according to the following mapping:\n\nsuits\n\n['♣️', '♦️', '♥️', '♠️']",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "deck.html",
+    "href": "deck.html",
+    "title": "Deck",
+    "section": "",
+    "text": "We initially create a deck, all the cards will be present.\n\ndeck = Deck()\ndeck\n\nA♣️; 2♣️; 3♣️; 4♣️; 5♣️; 6♣️; 7♣️; 8♣️; 9♣️; 10♣️; J♣️; Q♣️; K♣️; A♦️; 2♦️; 3♦️; 4♦️; 5♦️; 6♦️; 7♦️; 8♦️; 9♦️; 10♦️; J♦️; Q♦️; K♦️; A♥️; 2♥️; 3♥️; 4♥️; 5♥️; 6♥️; 7♥️; 8♥️; 9♥️; 10♥️; J♥️; Q♥️; K♥️; A♠️; 2♠️; 3♠️; 4♠️; 5♠️; 6♠️; 7♠️; 8♠️; 9♠️; 10♠️; J♠️; Q♠️; K♠️\n\n\n\ntest_eq(len(deck), 52)\n\nWe can check if the Ace of Spades is in the deck.\n\nc = Card(1, 1)\nc\n\nA♦️\n\n\n\nc in deck\n\nTrue\n\n\n\nsource\n\nDeck.pop\n\n Deck.pop (i=-1)\n\nRemove and return the card at index i\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ni\nint\n-1\nThe index of the card to remove (default is the last card)\n\n\n\n\ndeck = Deck()\ntest_eq(deck.pop(), Card(3, 13)) #K♠️\n\n\nDeck??\n\nInit signature: Deck()\nDocstring:      A deck of cards\nType:           type\nSubclasses:     \n\n\n\nsource\n\n\nDeck\n\n Deck ()\n\nA deck of cards\n\nsource\n\n\nDeck.pop\n\n Deck.pop (i=-1)\n\nRemove and return the card at index i\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ni\nint\n-1\nThe index of the card to remove (default is the last card)\n\n\n\n\nCard??\n\nInit signature: Card(suit: int, rank: int)\nSource:        \nclass Card:\n    \"A playing card.\"\n    def __init__(self,\n                 suit: int, # An index into the `suits`\n                 rank: int):  # An index into the `ranks`\n        \n        self.suit = suit\n        self.rank = rank\n\n        \n    def __repr__(self):\n        return f\"{ranks[self.rank]}{suits[self.suit]}\"\n    \n    def __eq__(self, value):\n        return self.suit == value.suit and self.rank == value.rank\nFile:           ~/Documents/upskilling/nbdev-cards/nbdev_cards/card.py\nType:           type\nSubclasses:     \n\n\nYou can also reference a page by using backticks: Card.\n\n\nFunctions\n\ndraw n cards\n\n\nsource\n\n\ndraw_n\n\n draw_n (n:int, replace:bool=False)\n\nDraw n cards from the deck\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nn\nint\n\nnumber of cards to draw\n\n\nreplace\nbool\nFalse\nwhether to replace the cards drawn\n\n\n\n\ndraw_n(5, replace=False)\n\n[A♥️, 4♥️, J♦️, 9♦️, 3♠️]",
+    "crumbs": [
+      "Deck"
+    ]
+  },
+  {
+    "objectID": "card.html",
+    "href": "card.html",
+    "title": "Card – A Basic Playing Card",
+    "section": "",
+    "text": "We will be using numbers to represent playing cards clubs and ranks. These are the suits:\n\nsuits\n\n['♣️', '♦️', '♥️', '♠️']\n\n\nFor instance the suit at index 0 is:\n\nsuits[0]\n\n'♣️'\n\n\nThese are the ranks:\n\nprint(ranks)\n\n[None, 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']\n\n\nNote that there isn’t a playing card at index 0, since we want the ranks to match the indices.\n\nranks[1]\n\n'A'\n\n\nHere’s an example of creating and displaying a card:\n\nc = Card(1, 3)\nc\n\n3♦️\n\n\n\nsource\n\nCard\n\n Card (suit:int, rank:int)\n\nA playing card.\n\n\n\n\nType\nDetails\n\n\n\n\nsuit\nint\nAn index into the suits\n\n\nrank\nint\nAn index into the ranks\n\n\n\n\n\nComparison Operators\nEquality, less than, and greater than work on the rank and suit indices:\nYou can also patch in fuctions to the Card class:\n\nsource\n\n\nCard.__lt__\n\n Card.__lt__ (other:__main__.Card)\n\nReturn self&lt;value.\n\nsource\n\n\nCard.__gt__\n\n Card.__gt__ (other:__main__.Card)\n\nReturn self&gt;value.\n\n\nUnit Tests?\n\ntest_eq??\n\nSignature: test_eq(a, b)\nSource:   \ndef test_eq(a,b):\n    \"`test` that `a==b`\"\n    test(a,b,equals, cname='==')\nFile:      ~/miniconda3/envs/nbdev-cards-env/lib/python3.10/site-packages/fastcore/test.py\nType:      function\n\n\n\ntest_eq(c, Card(1, 3))\ntest_ne(c, Card(1, 4))\ntest_ne(c, Card(2, 3))\n\n\nassert c &lt; Card(2, 4)\nassert not c &lt; Card(1, 2)\nassert c &gt; Card(0, 2)",
+    "crumbs": [
+      "Card -- A Basic Playing Card"
+    ]
+  }
+]
